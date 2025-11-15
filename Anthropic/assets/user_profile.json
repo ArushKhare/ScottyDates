@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DatingProfile",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "Unique identifier for the user"
+    },
+    "name": {
+      "type": "string",
+      "description": "User’s name or first name"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 18,
+      "description": "Age of the user"
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["male", "female", "non-binary", "other"],
+      "description": "User’s gender"
+    },
+    "location": {
+      "type": "string",
+      "description": "City, region, or location description"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short biography or introduction"
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of interests, hobbies, passions"
+    },
+    "favorite_books": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Favorite books (optional)"
+    },
+    "favorite_movies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Favorite movies (optional)"
+    },
+    "profession": {
+      "type": "string",
+      "description": "User’s job or professional role"
+    },
+    "personality_traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Personality traits (e.g., adventurous, introverted, funny)"
+    }
+  },
+  "required": ["user_id", "name", "age", "bio", "interests"]
+}
