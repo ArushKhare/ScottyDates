@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CollegeMatch (Gemini)</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    h1 {
+      text-align: center;
+    }
+    section {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .match-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .match-actions button {
+      margin-right: 0.5rem;
+    }
+    #chat_messages {
+      max-height: 250px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      background: #fafafa;
+    }
+    .msg-me {
+      text-align: right;
+      margin: 0.25rem 0;
+    }
+    .msg-them {
+      text-align: left;
+      margin: 0.25rem 0;
+    }
+    .ai-suggestion {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>CollegeMatch (Gemini-powered)</h1>
+
+  <section id="auth">
+    <h2>Login / Register</h2>
+    <input id="email" placeholder="email (.edu)" />
+    <input id="password" type="password" placeholder="password" />
+    <input id="full_name" placeholder="full name (register only)" />
+    <br /><br />
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+  </section>
+
+  <section id="profile">
+    <h2>My Profile</h2>
+    <input id="age" type="number" placeholder="age" />
+    <input id="gender" placeholder="gender" />
+    <input id="major" placeholder="major" />
+    <input id="class_year" type="number" placeholder="class year" />
+    <input id="campus" placeholder="campus (e.g., CMU)" />
+    <input id="interests" placeholder="interests (comma separated)" />
+    <br /><br />
+    <textarea id="bio" placeholder="short bio" rows="3" cols="60"></textarea>
+    <br /><br />
+    <button onclick="saveProfile()">Save Profile</button>
+  </section>
+
+  <section id="swipe">
+    <h2>Swipe Matches</h2>
+    <button onclick="loadMatches()">Load / Refresh Matches</button>
+    <div id="swipe_container">
+      <!-- match card injected here -->
+    </div>
+  </section>
+
+  <section id="chat">
+    <h2>Chat</h2>
+    <p>
+      Current chat with user: <span id="chat_with_user_label">none</span>
+    </p>
+    <div id="chat_messages"></div>
+    <textarea id="chat_input" rows="2" cols="60" placeholder="Type your message..."></textarea>
+    <br />
+    <button onclick="sendChatMessage()">Send</button>
+    <button onclick="getChatHelperForCurrent()">Get AI Suggestions</button>
+
+    <h3>AI Summary</h3>
+    <pre id="ai_summary"></pre>
+
+    <h3>Suggested lines (click to insert)</h3>
+    <ul id="ai_openers"></ul>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
