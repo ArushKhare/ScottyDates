@@ -15,12 +15,14 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 profile = {
-    "name": "Alice",
-    "age": 27,
-    "bio": "Adventurous, loves hiking and reading mystery novels.",
-    "interests": ["hiking", "reading", "photography"],
-    "favorite_books": ["Gone Girl", "Sherlock Holmes"],
-    "personality_traits": ["adventurous", "funny"]
+    "name": "Liam",
+    "age": 18,
+    "bio": "Gaming",
+    "interests": [
+        "Piano"
+    ],
+    "favorite_books": [],
+    "personality_traits": []
 }
 
 prompt = f"""
